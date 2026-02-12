@@ -32,3 +32,9 @@ Instalamos librerías:
 - sqlalchemy, para conectarnos a postgres desde la notebook.
 - psycopg2-binary, 
 - tqdm, para ver el progreso de carga de datos.
+
+### 06-ingestion-script
+Convertimos la notebook en un script de python.
+Convertimos inputs de datos en variables y ordenamos el código.
+Parametrizamos la variables.
+Intalamos la librería click para permitir el input de parámetros por comando.
