@@ -38,3 +38,7 @@ Convertimos la notebook en un script de python.
 Convertimos inputs de datos en variables y ordenamos el código.
 Parametrizamos la variables.
 Intalamos la librería click para permitir el input de parámetros por comando.
+
+### 07-pgadmin
+Creamos una red compartida entre los contenedores para que puedan comunicarse entre sí.
+Ejecutamos un nuevo contenedor para pgadmin.
