@@ -42,3 +42,18 @@ Intalamos la librería click para permitir el input de parámetros por comando.
 ### 07-pgadmin
 Creamos una red compartida entre los contenedores para que puedan comunicarse entre sí.
 Ejecutamos un nuevo contenedor para pgadmin.
+
+### 08-dockerizing-ingestion
+Actualizamos el Dockerfile para ejecutar la carga de datos (ingest_data.py).
+Para ejecutar el nuevo contenedor de carga, y que pueda conectarse a postgres, agregamos un argumento para especificar la network y cambiamos el nombre del host:
+```
+docker run -it \
+  --network=pg-network \
+  taxi_ingest:v001 \
+    --pg-user=root \
+    --pg-pass=root \
+    --pg-host=pgdatabase \
+    --pg-port=5432 \
+    --pg-db=ny_taxi \
+    --target-table=yellow_taxi_trips
+```
