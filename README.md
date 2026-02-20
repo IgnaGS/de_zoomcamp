@@ -57,3 +57,31 @@ docker run -it \
     --pg-db=ny_taxi \
     --target-table=yellow_taxi_trips
 ```
+### 09-docker-compose
+Con docker-compose podemos ejecutar varios contenedores a la vez, especificando los parámetros de entrada, desde un archivo .yaml, sin necesidad de utilizar comandos largos ni terminales distintas. Además que también crea y utiliza una network compartida para los contenedores que ejecuta.
+
+Para ejecutar los contenedores utilizamos el comando:
+```
+docker-compose up
+```
+
+Y para detenerlos utilizamos (en otra consola):
+```
+docker-compose down
+```
+
+Con este cambio, los contenedores se estarían ejecutando con nuevos volúmenes de almacenamiento, por lo que es necesario volver a configurar pgadmin y volver a cargar los datos en pgdatabase, esta vez con el contenedor de ingest_data y especificando la network que se 
+cree con docker-compose:
+```
+docker network ls
+
+docker run -it --rm\
+  --network=pipeline_default \
+  taxi_ingest:v001 \
+    --pg-user=root \
+    --pg-pass=root \
+    --pg-host=pgdatabase \
+    --pg-port=5432 \
+    --pg-db=ny_taxi \
+    --target-table=yellow_taxi_trips
+```
