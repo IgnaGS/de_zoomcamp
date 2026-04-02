@@ -85,3 +85,7 @@ docker run -it --rm\
     --pg-db=ny_taxi \
     --target-table=yellow_taxi_trips
 ```
+## 02-workflow-orchestration
+
+### 2.2 Getting Started with Kestra
+Creamos un nuevo docker-compose para levantar los servicios de postgress, pgadmin y kestra.
