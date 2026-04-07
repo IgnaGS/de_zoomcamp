@@ -89,3 +89,8 @@ docker run -it --rm\
 
 ### 2.2 Getting Started with Kestra
 Creamos un nuevo docker-compose para levantar los servicios de postgress, pgadmin y kestra.
+La imagen docker de kestra es bastante pesada. Puede ocupar el almacenamiento de github codespaces. Conviene revisar y eliminar mágenes y contenedores que ya no se utilicen.
+
+### 2.3 - Hands-On Coding Project: Build ETL Data Pipelines with Kestra
+Dentro de kestra creamos varios flujos de datos y transformaciones para probar y conocer la herramienta.
+Podemos indicar variables de input manuales, o establecer triggers automáticos para las ejecuciones indicando los valores para los inputs.
