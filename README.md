@@ -117,3 +117,6 @@ Con el flujo `07_gcp_setup`, creamos un bucket en GCS y un dataset en BigQuery, 
 ``
 "{{ secret('GCP_SERVICE_ACCOUNT') }}"
 ``
+
+Con el flujo ``08_gcp_taxi``, se cargan los datos de taxis, se guardan en gcs, se procesan según si son amarillos o verdes, y se guardan guardan en BQ. 
+El flujo `09_gcp_taxi_scheduled` es lo mismo pero suma un trigger diario a las 9am para taxis verdes y a las 10am para amarillos.
