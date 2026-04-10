@@ -94,3 +94,26 @@ La imagen docker de kestra es bastante pesada. Puede ocupar el almacenamiento de
 ### 2.3 - Hands-On Coding Project: Build ETL Data Pipelines with Kestra
 Dentro de kestra creamos varios flujos de datos y transformaciones para probar y conocer la herramienta.
 Podemos indicar variables de input manuales, o establecer triggers automáticos para las ejecuciones indicando los valores para los inputs.
+
+### 2.4 - ELT Pipelines in Kestra: Google Cloud Platform
+El flujo `06_gcp_kv` se usa para crear variables dentro de Kestra.
+También podemos incorporar variables de entorno en Kestra desde un archivo .env, especificándolas en el archivo docker-compose.
+
+Para cargar variables como secrets, es necesario cifrarlas primero. 
+Podemos usar un archivo .env y por consola cifrar todos los valores con el siguiente comando:
+```
+while IFS='=' read -r key value; do
+  echo "SECRET_$key=$(echo -n "$value" | base64)";
+done < .env > .env_encoded
+```
+Con esto se crea un nuevo archivo llamado ".env_encoded" con las variables ya cifradas. 
+
+Para usar el .json de la service account de GCP, podemos cifrar el archivo de forma similar para generar un nuevo archivo cifrado:
+```
+echo SECRET_GCP_SERVICE_ACCOUNT=$(cat service-account.json | base64 -w 0) >> .env_encoded
+```
+
+Con el flujo `07_gcp_setup`, creamos un bucket en GCS y un dataset en BigQuery, utilizando las variables cargadas.
+``
+"{{ secret('GCP_SERVICE_ACCOUNT') }}"
+``
