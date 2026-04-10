@@ -149,6 +149,7 @@ env.bak/
 venv.bak/
 sa.json
 .env_encoded
+.json_encoded
 
 # Spyder project settings
 .spyderproject
